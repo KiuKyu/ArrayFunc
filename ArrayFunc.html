@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <p id="b1"></p>
+    <p id="b2"></p>
+    <p id="b3"></p>
+    <script>
+        // B1: Nối phần tử trong 1 mảng chuỗi
+        let myColor = ["Red", "Green", "White", "Black"];
+        document.getElementById('b1').innerHTML = myColor.toString();
+
+        // B2: Thêm dấu - vào giữa những phần tử số chẵn
+        let iString = prompt('Điền vào 1 dãy số'); // iString nhập vào là chuỗi
+        let oString = [iString[0]]; // khởi tạo oString nhận value string ở index [0]
+        // Lúc này oString là mảng
+
+        for (let i = 1; i < iString.length; i++) {
+            if (iString[i - 1] % 2 == 0 && iString[i] % 2 == 0) {
+                // Kiểm tra nếu value ở vị trí i và vị trí i-1 có % 2 không
+                oString.push('-', iString[i]);
+                // Có thì thêm dấu - rồi thêm value ở i
+            }
+            else {
+                // Không thì chỉ in value ở i thôi
+                oString.push(iString[i]);
+            }
+        }
+        document.getElementById('b2').innerHTML =
+            oString.join('');
+        // Biển mảng thành chuỗi
+
+        // B3 : chuyển ký tự chữ trong chuỗi nhập sang thành chữ hoa
+        let inStr = prompt('Enter a string here');
+        const UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        let outStr = [];
+
+        for (let j = 0; j < inStr.length; j++) {
+            if (UPPER.includes(inStr[j])) {
+                outStr.push(inStr[j].toLowerCase());
+            } else if (LOWER.includes(inStr[j])) {
+                outStr.push(inStr[j].toUpperCase());
+            } else {
+                outStr.push(inStr[j]);
+            }
+        }
+
+        document.getElementById('b3').innerHTML = outStr.join('');
+    </script>
+</body>
+</html>
